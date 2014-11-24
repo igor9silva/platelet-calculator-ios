@@ -1,0 +1,69 @@
+
+/* Class = "IBUILabel"; text = "Transfusão Profilática"; ObjectID = "0jx-yr-CCv"; */
+"0jx-yr-CCv.text" = "Transfusão Profilática";
+
+/* Class = "IBUILabel"; text = "Peso"; ObjectID = "3bI-2b-QP4"; */
+"3bI-2b-QP4.text" = "Peso";
+
+/* Class = "IBUITextField"; text = "35000"; ObjectID = "4Sc-gn-9dn"; */
+"4Sc-gn-9dn.text" = "35000";
+
+/* Class = "IBUISegmentedControl"; 5hX-hs-7Po.segmentTitles[0] = "kg"; ObjectID = "5hX-hs-7Po"; */
+"5hX-hs-7Po.segmentTitles[0]" = "kg";
+
+/* Class = "IBUISegmentedControl"; 5hX-hs-7Po.segmentTitles[1] = "lb"; ObjectID = "5hX-hs-7Po"; */
+"5hX-hs-7Po.segmentTitles[1]" = "lb";
+
+/* Class = "IBUILabel"; text = "Transfusão Terapêutica"; ObjectID = "80W-oW-HRh"; */
+"80W-oW-HRh.text" = "Transfusão Terapêutica";
+
+/* Class = "IBUISegmentedControl"; 8to-nu-iIn.segmentTitles[0] = "Homem"; ObjectID = "8to-nu-iIn"; */
+"8to-nu-iIn.segmentTitles[0]" = "Homem";
+
+/* Class = "IBUISegmentedControl"; 8to-nu-iIn.segmentTitles[1] = "Mulher/Criança"; ObjectID = "8to-nu-iIn"; */
+"8to-nu-iIn.segmentTitles[1]" = "Mulher/Criança";
+
+/* Class = "IBUISegmentedControl"; 8to-nu-iIn.segmentTitles[2] = "RN"; ObjectID = "8to-nu-iIn"; */
+"8to-nu-iIn.segmentTitles[2]" = "RN";
+
+/* Class = "IBUISegmentedControl"; 8to-nu-iIn.segmentTitles[3] = "Prematuro"; ObjectID = "8to-nu-iIn"; */
+"8to-nu-iIn.segmentTitles[3]" = "Prematuro";
+
+/* Class = "IBUILabel"; text = "Aférese Buffy Coat Pool"; ObjectID = "Fhq-8i-iVr"; */
+"Fhq-8i-iVr.text" = "Aférese Buffy Coat Pool";
+
+/* Class = "IBUILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "Loaded by SecondViewController";
+
+/* Class = "IBUILabel"; text = "pré-transfusional"; ObjectID = "Sb0-hT-vjg"; */
+"Sb0-hT-vjg.text" = "pré-transfusional";
+
+/* Class = "IBUITabBarItem"; title = "Volume"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Volume";
+
+/* Class = "IBUILabel"; text = "Plaquetometria"; ObjectID = "aws-9B-yd7"; */
+"aws-9B-yd7.text" = "Plaquetometria";
+
+/* Class = "IBUITabBarItem"; title = "Rendimento"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Rendimento";
+
+/* Class = "IBUILabel"; text = "Rendimento"; ObjectID = "fj6-FT-3sE"; */
+"fj6-FT-3sE.text" = "Rendimento";
+
+/* Class = "IBUILabel"; text = "%"; ObjectID = "hyT-1U-VMi"; */
+"hyT-1U-VMi.text" = "%";
+
+/* Class = "IBUITextField"; text = "650"; ObjectID = "iVf-sS-WtE"; */
+"iVf-sS-WtE.text" = "650";
+
+/* Class = "IBUITextField"; text = "80"; ObjectID = "nqh-pH-Qjh"; */
+"nqh-pH-Qjh.text" = "80";
+
+/* Class = "IBUILabel"; text = "Standard Randômica"; ObjectID = "w5G-0I-GKy"; */
+"w5G-0I-GKy.text" = "Standard Randômica";
+
+/* Class = "IBUILabel"; text = "/mm³"; ObjectID = "yup-Jk-Wyf"; */
+"yup-Jk-Wyf.text" = "/mm³";
+
+/* Class = "IBUILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Second View";

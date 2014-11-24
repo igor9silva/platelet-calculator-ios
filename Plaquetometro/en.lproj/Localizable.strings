@@ -1,0 +1,10 @@
+/*
+  Localizable.strings
+  Plaquetometro
+
+  Created by Igor Silva on 11/24/14.
+  Copyright (c) 2014 GARRA Software House. All rights reserved.
+*/
+
+"MISSING_DATA" = "Missing parameters";
+"UNIT" = "unit";

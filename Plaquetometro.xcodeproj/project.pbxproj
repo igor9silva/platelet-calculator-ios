@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F21F58D71AC6599700520724 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F21F58D91AC6599700520724 /* InfoPlist.strings */; };
+		F29064141A238C530084306B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29064131A238C530084306B /* AppDelegate.swift */; };
+		F29064161A238C530084306B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29064151A238C530084306B /* FirstViewController.swift */; };
+		F29064181A238C530084306B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29064171A238C530084306B /* SecondViewController.swift */; };
+		F290641B1A238C530084306B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29064191A238C530084306B /* Main.storyboard */; };
+		F290641D1A238C530084306B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F290641C1A238C530084306B /* Images.xcassets */; };
+		F29064201A238C530084306B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F290641E1A238C530084306B /* LaunchScreen.xib */; };
+		F290642C1A238C530084306B /* PlaquetometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290642B1A238C530084306B /* PlaquetometroTests.swift */; };
+		F290643D1A239F790084306B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F290643F1A239F790084306B /* Localizable.strings */; };
+		F29064471A23AFAE0084306B /* IncrementHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29064461A23AFAE0084306B /* IncrementHelpViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F29064261A238C530084306B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F29064061A238C530084306B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F290640D1A238C530084306B;
+			remoteInfo = Plaquetometro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F21F58D81AC6599700520724 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F21F58DA1AC6599800520724 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F21F58DB1AC65B2F00520724 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F290640E1A238C530084306B /* plaquetometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plaquetometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F29064131A238C530084306B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F29064151A238C530084306B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		F29064171A238C530084306B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F290641C1A238C530084306B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F29064251A238C530084306B /* PlaquetometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaquetometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F290642A1A238C530084306B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PlaquetometroTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		F290642B1A238C530084306B /* PlaquetometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaquetometroTests.swift; sourceTree = "<group>"; };
+		F29064391A2390390084306B /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F290643A1A2390390084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F290643E1A239F790084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F29064401A239F7A0084306B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F29064441A23AA470084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F29064461A23AFAE0084306B /* IncrementHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementHelpViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F290640B1A238C530084306B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F29064221A238C530084306B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F29064051A238C530084306B = {
+			isa = PBXGroup;
+			children = (
+				F29064101A238C530084306B /* Plaquetometro */,
+				F29064281A238C530084306B /* PlaquetometroTests */,
+				F290640F1A238C530084306B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F290640F1A238C530084306B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F290640E1A238C530084306B /* plaquetometro.app */,
+				F29064251A238C530084306B /* PlaquetometroTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F29064101A238C530084306B /* Plaquetometro */ = {
+			isa = PBXGroup;
+			children = (
+				F29064131A238C530084306B /* AppDelegate.swift */,
+				F29064151A238C530084306B /* FirstViewController.swift */,
+				F29064171A238C530084306B /* SecondViewController.swift */,
+				F29064461A23AFAE0084306B /* IncrementHelpViewController.swift */,
+				F29064191A238C530084306B /* Main.storyboard */,
+				F290641E1A238C530084306B /* LaunchScreen.xib */,
+				F290643F1A239F790084306B /* Localizable.strings */,
+				F21F58D91AC6599700520724 /* InfoPlist.strings */,
+				F290641C1A238C530084306B /* Images.xcassets */,
+				F29064111A238C530084306B /* Supporting Files */,
+			);
+			path = Plaquetometro;
+			sourceTree = "<group>";
+		};
+		F29064111A238C530084306B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F290642A1A238C530084306B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F29064281A238C530084306B /* PlaquetometroTests */ = {
+			isa = PBXGroup;
+			children = (
+				F290642B1A238C530084306B /* PlaquetometroTests.swift */,
+				F29064291A238C530084306B /* Supporting Files */,
+			);
+			path = PlaquetometroTests;
+			sourceTree = "<group>";
+		};
+		F29064291A238C530084306B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F290640D1A238C530084306B /* Plaquetometro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F290642F1A238C530084306B /* Build configuration list for PBXNativeTarget "Plaquetometro" */;
+			buildPhases = (
+				F290640A1A238C530084306B /* Sources */,
+				F290640B1A238C530084306B /* Frameworks */,
+				F290640C1A238C530084306B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Plaquetometro;
+			productName = Plaquetometro;
+			productReference = F290640E1A238C530084306B /* plaquetometro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F29064241A238C530084306B /* PlaquetometroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F29064321A238C530084306B /* Build configuration list for PBXNativeTarget "PlaquetometroTests" */;
+			buildPhases = (
+				F29064211A238C530084306B /* Sources */,
+				F29064221A238C530084306B /* Frameworks */,
+				F29064231A238C530084306B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F29064271A238C530084306B /* PBXTargetDependency */,
+			);
+			name = PlaquetometroTests;
+			productName = PlaquetometroTests;
+			productReference = F29064251A238C530084306B /* PlaquetometroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F29064061A238C530084306B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Garra Studios";
+				TargetAttributes = {
+					F290640D1A238C530084306B = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = SLSV74A325;
+					};
+					F29064241A238C530084306B = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = F290640D1A238C530084306B;
+					};
+				};
+			};
+			buildConfigurationList = F29064091A238C530084306B /* Build configuration list for PBXProject "Plaquetometro" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				pt,
+			);
+			mainGroup = F29064051A238C530084306B;
+			productRefGroup = F290640F1A238C530084306B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F290640D1A238C530084306B /* Plaquetometro */,
+				F29064241A238C530084306B /* PlaquetometroTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F290640C1A238C530084306B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F290641B1A238C530084306B /* Main.storyboard in Resources */,
+				F290643D1A239F790084306B /* Localizable.strings in Resources */,
+				F29064201A238C530084306B /* LaunchScreen.xib in Resources */,
+				F290641D1A238C530084306B /* Images.xcassets in Resources */,
+				F21F58D71AC6599700520724 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F29064231A238C530084306B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F290640A1A238C530084306B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F29064181A238C530084306B /* SecondViewController.swift in Sources */,
+				F29064141A238C530084306B /* AppDelegate.swift in Sources */,
+				F29064161A238C530084306B /* FirstViewController.swift in Sources */,
+				F29064471A23AFAE0084306B /* IncrementHelpViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F29064211A238C530084306B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F290642C1A238C530084306B /* PlaquetometroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F29064271A238C530084306B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F290640D1A238C530084306B /* Plaquetometro */;
+			targetProxy = F29064261A238C530084306B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F21F58D91AC6599700520724 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F21F58D81AC6599700520724 /* en */,
+				F21F58DA1AC6599800520724 /* pt */,
+			);
+			name = InfoPlist.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F29064191A238C530084306B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F29064391A2390390084306B /* pt */,
+				F290643A1A2390390084306B /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F290641E1A238C530084306B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F29064441A23AA470084306B /* en */,
+				F21F58DB1AC65B2F00520724 /* pt */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		F290643F1A239F790084306B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F290643E1A239F790084306B /* en */,
+				F29064401A239F7A0084306B /* pt */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F290642D1A238C530084306B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Garra Studios (A9JMY4EJU9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Garra Studios (A9JMY4EJU9)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F290642E1A238C530084306B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F29064301A238C530084306B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/PlaquetometroTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = plaquetometro;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		F29064311A238C530084306B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/PlaquetometroTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = plaquetometro;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		F29064331A238C530084306B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PlaquetometroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = PlaquetometroTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plaquetometro.app/Plaquetometro";
+			};
+			name = Debug;
+		};
+		F29064341A238C530084306B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PlaquetometroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = PlaquetometroTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plaquetometro.app/Plaquetometro";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F29064091A238C530084306B /* Build configuration list for PBXProject "Plaquetometro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F290642D1A238C530084306B /* Debug */,
+				F290642E1A238C530084306B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F290642F1A238C530084306B /* Build configuration list for PBXNativeTarget "Plaquetometro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F29064301A238C530084306B /* Debug */,
+				F29064311A238C530084306B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F29064321A238C530084306B /* Build configuration list for PBXNativeTarget "PlaquetometroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F29064331A238C530084306B /* Debug */,
+				F29064341A238C530084306B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F29064061A238C530084306B /* Project object */;
+}
