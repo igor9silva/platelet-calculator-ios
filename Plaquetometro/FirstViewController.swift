@@ -21,7 +21,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var rsltAferese: UITextField!
     
     // Constants
-    var txt_max_length = [2, 2, 3] // Plaquetometria, Rendimento, Peso
+    var txt_max_length = [2, 3, 2] // Plaquetometria, Peso, Rendimento
     
     // viewDidLoad
     override func viewDidLoad()
