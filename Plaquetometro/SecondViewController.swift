@@ -43,7 +43,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         let keyboardDoneButtonView = UIToolbar()
         keyboardDoneButtonView.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Bordered, target: self, action: "doneClicked")
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "doneClicked")
         keyboardDoneButtonView.setItems([doneButton], animated: true)
         
         txtPlaquetometriaInicial.inputAccessoryView = keyboardDoneButtonView
@@ -71,7 +71,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         let charSet = NSCharacterSet(charactersInString: "0123456789")
         
         // check if all 'new characters' are numbers, return false if some of them aren't
-        for i in 0..<countElements(string) {
+        for i in 0..<count(string) {
             let c:unichar = (string as NSString).characterAtIndex(i)
             if (!charSet.characterIsMember(c)) {
                 return false
@@ -79,7 +79,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         }
         
         // return true if newLength <= maxLength, else return false
-        return (countElements(textField.text) + countElements(string) - range.length < txt_max_length[textField.tag] + 1)
+        return (count(textField.text) + count(string) - range.length < txt_max_length[textField.tag] + 1)
     }
     
     // Clear the results fields
@@ -99,9 +99,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate
     {
         // DIFERENÇA DE PLAQUETAS ------------------------------------------------------------
         var qtDiferencaPlaquetas:Double = 0
-        if (countElements(txtPlaquetometriaInicial.text) > 0) {
+        if (count(txtPlaquetometriaInicial.text) > 0) {
             
-            if (countElements(txtPlaquetometriaFinal.text) > 0) {
+            if (count(txtPlaquetometriaFinal.text) > 0) {
                 qtDiferencaPlaquetas = Double(txtPlaquetometriaFinal.text.toInt()! - txtPlaquetometriaInicial.text.toInt()!) * 1000
             }
             else {
@@ -122,7 +122,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
             
             let volemiaPorKg = [75, 65, 90, 110]
             
-            if (countElements(txtPeso.text) > 0) {
+            if (count(txtPeso.text) > 0) {
                 
                 PesoDouble = Double(txtPeso.text.toInt()!)
                 if (ctrlUnidadePeso.selectedSegmentIndex != UISegmentedControlNoSegment) {
@@ -156,7 +156,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         
         // VOLUME DAS PLAQUETAS --------------------------------------------------------------
         var volume:Double = 0
-        if (countElements(txtVolume.text) > 0) {
+        if (count(txtVolume.text) > 0) {
             if (ctrlTipoBolsa.selectedSegmentIndex != UISegmentedControlNoSegment) {
                 
                 volume = Double(txtVolume.text.toInt()!)
@@ -182,14 +182,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         // -----------------------------------------------------------------------------------
         
         // EXIBINDO 'RENDIMENTO' -------------------------------------------------------------
-        rsltBox.text = NSString(format: "%.0f%%", rendimento * 100)
+        rsltBox.text = String(format: "%.0f%%", rendimento * 100)
         // -----------------------------------------------------------------------------------
         
         
         
         // ALTURA ----------------------------------------------------------------------------
         var altura:Double = 0
-        if (countElements(txtAltura.text) > 0) {
+        if (count(txtAltura.text) > 0) {
             altura = Double(txtAltura.text.toInt()!)
         }
         else {
@@ -205,7 +205,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         // -----------------------------------------------------------------------------------
         
         // EXIBINDO 'CCI' --------------------------------------------------------------------
-        rsltCCI.text = NSString(format: "%.0f/L", CCI)
+        var formatter = NSNumberFormatter()
+        formatter.formatterBehavior = .Behavior10_4
+        formatter.numberStyle = .DecimalStyle
+        rsltCCI.text = formatter.stringFromNumber(floor(CCI))! + "/L"
+        //String(format: "%.0f/L", CCI)
         // -----------------------------------------------------------------------------------
     }
     
@@ -225,7 +229,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (countElements(txtPeso.text) > txt_max_length[2]) {
+            if (count(txtPeso.text) > txt_max_length[2]) {
                 let i = advance(txtPeso.text.startIndex, txt_max_length[2])
                 txtPeso.text = txtPeso.text.substringToIndex(i)
             }
@@ -247,7 +251,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (countElements(txtPeso.text) > txt_max_length[2]) {
+            if (count(txtPeso.text) > txt_max_length[2]) {
                 let i = advance(txtPeso.text.startIndex, txt_max_length[2])
                 txtPeso.text = txtPeso.text.substringToIndex(i)
             }

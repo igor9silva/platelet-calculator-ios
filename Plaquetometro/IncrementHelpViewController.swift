@@ -18,6 +18,6 @@ class IncrementHelpViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func btnFechar_TouchUpInside(sender: UIButton)
     {
-        self.dismissViewControllerAnimated(true, {})
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
