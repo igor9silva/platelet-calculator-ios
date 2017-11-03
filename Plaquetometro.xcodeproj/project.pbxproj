@@ -14,7 +14,6 @@
 		F290641B1A238C530084306B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29064191A238C530084306B /* Main.storyboard */; };
 		F290641D1A238C530084306B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F290641C1A238C530084306B /* Images.xcassets */; };
 		F29064201A238C530084306B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F290641E1A238C530084306B /* LaunchScreen.xib */; };
-		F290642C1A238C530084306B /* PlaquetometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290642B1A238C530084306B /* PlaquetometroTests.swift */; };
 		F290643D1A239F790084306B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F290643F1A239F790084306B /* Localizable.strings */; };
 		F29064471A23AFAE0084306B /* IncrementHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29064461A23AFAE0084306B /* IncrementHelpViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,6 @@
 		F290641C1A238C530084306B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F29064251A238C530084306B /* PlaquetometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaquetometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F290642A1A238C530084306B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PlaquetometroTests/Info.plist; sourceTree = SOURCE_ROOT; };
-		F290642B1A238C530084306B /* PlaquetometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaquetometroTests.swift; sourceTree = "<group>"; };
 		F290643A1A2390390084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F290643E1A239F790084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29064401A239F7A0084306B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				F29064101A238C530084306B /* Plaquetometro */,
-				F29064281A238C530084306B /* PlaquetometroTests */,
 				F290640F1A238C530084306B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,22 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				F290642A1A238C530084306B /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F29064281A238C530084306B /* PlaquetometroTests */ = {
-			isa = PBXGroup;
-			children = (
-				F290642B1A238C530084306B /* PlaquetometroTests.swift */,
-				F29064291A238C530084306B /* Supporting Files */,
-			);
-			path = PlaquetometroTests;
-			sourceTree = "<group>";
-		};
-		F29064291A238C530084306B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,7 +151,7 @@
 		F29064061A238C530084306B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Garra Studios";
 				TargetAttributes = {
 					F290640D1A238C530084306B = {
@@ -241,7 +222,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F290642C1A238C530084306B /* PlaquetometroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,25 +280,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Garra Studios (A9JMY4EJU9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Garra Studios (A9JMY4EJU9)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -337,6 +328,7 @@
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -345,17 +337,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -364,6 +365,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -374,6 +376,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -385,8 +389,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SLSV74A325;
 				INFOPLIST_FILE = "$(SRCROOT)/PlaquetometroTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.garrastudios.plaquetometro;
 				PRODUCT_NAME = plaquetometro;
 				PROVISIONING_PROFILE = "";
 			};
@@ -398,8 +404,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SLSV74A325;
 				INFOPLIST_FILE = "$(SRCROOT)/PlaquetometroTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.garrastudios.plaquetometro;
 				PRODUCT_NAME = plaquetometro;
 				PROVISIONING_PROFILE = "";
 			};
@@ -419,6 +427,7 @@
 				);
 				INFOPLIST_FILE = PlaquetometroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.garrastudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PlaquetometroTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plaquetometro.app/Plaquetometro";
 			};
@@ -434,6 +443,7 @@
 				);
 				INFOPLIST_FILE = PlaquetometroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.garrastudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PlaquetometroTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plaquetometro.app/Plaquetometro";
 			};

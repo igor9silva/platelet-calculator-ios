@@ -43,7 +43,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         let keyboardDoneButtonView = UIToolbar()
         keyboardDoneButtonView.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "doneClicked")
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClicked))
         keyboardDoneButtonView.setItems([doneButton], animated: true)
         
         txtPlaquetometriaInicial.inputAccessoryView = keyboardDoneButtonView
@@ -58,28 +58,25 @@ class SecondViewController: UIViewController, UITextFieldDelegate
     }
     
     // 'done' button (on numPad keyboard) pressed
-    func doneClicked()
+    @objc func doneClicked()
     {
         // hide the keyboard
         self.view.endEditing(true)
     }
     
     // TextFields - shouldChangeCharactersInRange - applying the max length
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         // create a charset containing only numbers
-        let charSet = NSCharacterSet(charactersInString: "0123456789")
+        let nonNumberCharSet = CharacterSet(charactersIn: "0123456789").inverted
         
         // check if all 'new characters' are numbers, return false if some of them aren't
-        for i in 0..<count(string) {
-            let c:unichar = (string as NSString).characterAtIndex(i)
-            if (!charSet.characterIsMember(c)) {
-                return false
-            }
+        if string.rangeOfCharacter(from: nonNumberCharSet) != nil {
+            return false
         }
-        
-        // return true if newLength <= maxLength, else return false
-        return (count(textField.text) + count(string) - range.length < txt_max_length[textField.tag] + 1)
+
+        let length = textField.text?.count ?? 0
+        return (length + string.count - range.length < txt_max_length[textField.tag] + 1)
     }
     
     // Clear the results fields
@@ -99,17 +96,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate
     {
         // DIFERENÇA DE PLAQUETAS ------------------------------------------------------------
         var qtDiferencaPlaquetas:Double = 0
-        if (count(txtPlaquetometriaInicial.text) > 0) {
+        if let txt1 = txtPlaquetometriaInicial.text, !txt1.isEmpty {
             
-            if (count(txtPlaquetometriaFinal.text) > 0) {
-                qtDiferencaPlaquetas = Double(txtPlaquetometriaFinal.text.toInt()! - txtPlaquetometriaInicial.text.toInt()!) * 1000
-            }
-            else {
+            if let txt2 = txtPlaquetometriaFinal.text, !txt2.isEmpty,
+                let val1 = Double(txt1),
+                let val2 = Double(txt2) {
+
+                qtDiferencaPlaquetas = (val2 - val1) * 1000
+            } else {
                 ClearResults()
                 return
             }
-        }
-        else {
+
+        } else {
             ClearResults()
             return
         }
@@ -118,37 +117,36 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         // VOLEMIA ---------------------------------------------------------------------------
         var volemia:Double = 0;
         var PesoDouble:Double = 0
+
         if (ctrlTipoPessoa.selectedSegmentIndex != UISegmentedControlNoSegment) {
             
             let volemiaPorKg = [75, 65, 90, 110]
             
-            if (count(txtPeso.text) > 0) {
+            if let txtPeso = txtPeso.text, !txtPeso.isEmpty {
                 
-                PesoDouble = Double(txtPeso.text.toInt()!)
+                PesoDouble = Double(txtPeso) ?? 0
+
                 if (ctrlUnidadePeso.selectedSegmentIndex != UISegmentedControlNoSegment) {
                     
                     if (ctrlUnidadePeso.selectedSegmentIndex == 1) { // POUNDS
                         PesoDouble = PesoDouble / 2.2
-                    }
-                    else if (ctrlUnidadePeso.titleForSegmentAtIndex(0) == "g") { // GRAMAS (not kg)
+                    } else if (ctrlUnidadePeso.titleForSegment(at: 0) == "g") { // GRAMAS (not kg)
                         PesoDouble /= 1000
                     }
                     
-                }
-                else {
+                } else {
                     ClearResults()
                     return
                 }
                 
-            }
-            else {
+            } else {
                 ClearResults()
                 return
             }
             
             volemia = PesoDouble * Double(volemiaPorKg[ctrlTipoPessoa.selectedSegmentIndex])
-        }
-        else {
+
+        } else {
             ClearResults()
             return
         }
@@ -156,20 +154,22 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         
         // VOLUME DAS PLAQUETAS --------------------------------------------------------------
         var volume:Double = 0
-        if (count(txtVolume.text) > 0) {
+
+        if let txt = txtVolume.text, !txt.isEmpty, let val = Double(txt) {
+
             if (ctrlTipoBolsa.selectedSegmentIndex != UISegmentedControlNoSegment) {
-                
-                volume = Double(txtVolume.text.toInt()!)
+
+                volume = val
+
                 // 0 = Standard | 1 = Aferese
                 volume *= ctrlTipoBolsa.selectedSegmentIndex == 0 ? 1_000_000_000 : 1_500_000_000
                 
-            }
-            else {
+            } else {
                 ClearResults()
                 return
             }
-        }
-        else {
+
+        } else {
             ClearResults()
             return
         }
@@ -189,10 +189,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         
         // ALTURA ----------------------------------------------------------------------------
         var altura:Double = 0
-        if (count(txtAltura.text) > 0) {
-            altura = Double(txtAltura.text.toInt()!)
-        }
-        else {
+        if let txt = txtAltura.text, !txt.isEmpty, let val = Double(txt) {
+            altura = val
+        } else {
             ClearCCI()
             return
         }
@@ -205,82 +204,89 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         // -----------------------------------------------------------------------------------
         
         // EXIBINDO 'CCI' --------------------------------------------------------------------
-        var formatter = NSNumberFormatter()
-        formatter.formatterBehavior = .Behavior10_4
-        formatter.numberStyle = .DecimalStyle
-        rsltCCI.text = formatter.stringFromNumber(floor(CCI))! + "/L"
-        //String(format: "%.0f/L", CCI)
+        let formatter = NumberFormatter()
+        formatter.formatterBehavior = .behavior10_4
+        formatter.numberStyle = .decimal
+
+        rsltCCI.text = formatter.string(from: NSNumber(value: floor(CCI)))! + "/L"
         // -----------------------------------------------------------------------------------
     }
     
     // IBActions ------------------------------------------------------------------------------------------------------------------
-    @IBAction func ctrlTipoPessoa_ValueChanged(sender: UISegmentedControl)
+    @IBAction func ctrlTipoPessoa_ValueChanged(_ sender: UISegmentedControl)
     {
         if (sender.selectedSegmentIndex > 1) {
+
             // set maxLength for 'g'
-            ctrlUnidadePeso.setTitle("g", forSegmentAtIndex: 0)
+            ctrlUnidadePeso.setTitle("g", forSegmentAt: 0)
+
             if (ctrlUnidadePeso.selectedSegmentIndex == 0) {
                 txt_max_length[2] = 4
             }
-        }
-        else {
+
+        } else {
+
             // set maxLength for 'kg'
-            ctrlUnidadePeso.setTitle("kg", forSegmentAtIndex: 0)
+            ctrlUnidadePeso.setTitle("kg", forSegmentAt: 0)
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (count(txtPeso.text) > txt_max_length[2]) {
-                let i = advance(txtPeso.text.startIndex, txt_max_length[2])
-                txtPeso.text = txtPeso.text.substringToIndex(i)
+            if let txt = txtPeso.text, txt.count > txt_max_length[2] {
+
+                let end = txt.index(txt.startIndex, offsetBy: txt_max_length[2])
+                txtPeso.text = String(txt[..<end])
             }
         }
         
         CalculateAndShow()
     }
     
-    @IBAction func ctrlUnidadePeso_ValueChanged(sender: UISegmentedControl)
+    @IBAction func ctrlUnidadePeso_ValueChanged(_ sender: UISegmentedControl)
     {
         if (sender.selectedSegmentIndex == 0) {
+
             // set maxLength for 'g'
-            if (sender.titleForSegmentAtIndex(0) == "g") {
+            if (sender.titleForSegment(at: 0) == "g") {
                 txt_max_length[2] = 4
             }
-        }
-        else {
+
+        } else {
+
             // set maxLength for 'kg'
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (count(txtPeso.text) > txt_max_length[2]) {
-                let i = advance(txtPeso.text.startIndex, txt_max_length[2])
-                txtPeso.text = txtPeso.text.substringToIndex(i)
+            if let txt = txtPeso.text, txt.count > txt_max_length[2] {
+
+                let end = txt.index(txt.startIndex, offsetBy: txt_max_length[2])
+                txtPeso.text = String(txt[..<end])
             }
         }
         
         CalculateAndShow()
     }
     
-    @IBAction func ctrlTipoBolsa_ValueChanged(sender: UISegmentedControl)
+    @IBAction func ctrlTipoBolsa_ValueChanged(_ sender: UISegmentedControl)
     {
         CalculateAndShow()
     }
     
-    @IBAction func txtPlaquetometriaInicial_EditingChanged(sender: UITextField)
+    @IBAction func txtPlaquetometriaInicial_EditingChanged(_ sender: UITextField)
     {
         CalculateAndShow()
     }
     
-    @IBAction func txtPlaquetometriaFinal_EditingChanged(sender: UITextField)
+    @IBAction func txtPlaquetometriaFinal_EditingChanged(_ sender: UITextField)
     {
         CalculateAndShow()
     }
     
-    @IBAction func txtPeso_EditingChanged(sender: UITextField)
+    @IBAction func txtPeso_EditingChanged(_ sender: UITextField)
     {
         CalculateAndShow()
     }
     
-    @IBAction func txtVolume_EditingChanged(sender: UITextField)
+    @IBAction func txtVolume_EditingChanged(_ sender: UITextField)
     {
         CalculateAndShow()
     }
