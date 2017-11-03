@@ -14,14 +14,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var txtPlaquetometriaInicial: UITextField!
     @IBOutlet weak var txtPlaquetometriaFinal: UITextField!
     @IBOutlet weak var txtPeso: UITextField!
+    @IBOutlet weak var txtAltura: UITextField!
     @IBOutlet weak var txtVolume: UITextField!
     @IBOutlet weak var ctrlTipoPessoa: UISegmentedControl!
     @IBOutlet weak var ctrlUnidadePeso: UISegmentedControl!
     @IBOutlet weak var ctrlTipoBolsa: UISegmentedControl!
     @IBOutlet weak var rsltBox: UITextField!
+    @IBOutlet weak var rsltCCI: UITextField!
     
     // Constants
-    var txt_max_length = [2,3,3,4] // PlaqInicial, PlaqFinal, Peso, Volume
+    var txt_max_length = [2,3,3,3,4] // PlaqInicial, PlaqFinal, Peso, Altura, Volume
     
     // viewDidLoad
     override func viewDidLoad()
@@ -31,25 +33,28 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         // Setting txtFields delegates to self, so we can apply maximum length ----------------------------------------------------
         txtPlaquetometriaInicial.delegate = self
         txtPlaquetometriaFinal.delegate = self
-        txtVolume.delegate = self
         txtPeso.delegate = self
+        txtAltura.delegate = self
+        txtVolume.delegate = self
+
         // ------------------------------------------------------------------------------------------------------------------------
         
         // Add 'done' button to txtFields -----------------------------------------------------------------------------------------
         let keyboardDoneButtonView = UIToolbar()
         keyboardDoneButtonView.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Bordered, target: self, action: "doneClicked")
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "doneClicked")
         keyboardDoneButtonView.setItems([doneButton], animated: true)
         
         txtPlaquetometriaInicial.inputAccessoryView = keyboardDoneButtonView
         txtPlaquetometriaFinal.inputAccessoryView = keyboardDoneButtonView
         txtPeso.inputAccessoryView = keyboardDoneButtonView
+        txtAltura.inputAccessoryView = keyboardDoneButtonView
         txtVolume.inputAccessoryView = keyboardDoneButtonView
         // ------------------------------------------------------------------------------------------------------------------------
 
         // Show "missing data"
-        ClearResult()
+        ClearResults()
     }
     
     // 'done' button (on numPad keyboard) pressed
@@ -66,7 +71,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         let charSet = NSCharacterSet(charactersInString: "0123456789")
         
         // check if all 'new characters' are numbers, return false if some of them aren't
-        for i in 0..<countElements(string) {
+        for i in 0..<count(string) {
             let c:unichar = (string as NSString).characterAtIndex(i)
             if (!charSet.characterIsMember(c)) {
                 return false
@@ -74,13 +79,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate
         }
         
         // return true if newLength <= maxLength, else return false
-        return (countElements(textField.text) + countElements(string) - range.length < txt_max_length[textField.tag] + 1)
+        return (count(textField.text) + count(string) - range.length < txt_max_length[textField.tag] + 1)
     }
     
     // Clear the results fields
-    func ClearResult()
+    func ClearResults()
     {
         rsltBox.text = NSLocalizedString("MISSING_DATA", comment: "Missing some parameter, can't calculate results")
+        ClearCCI()
+    }
+    
+    func ClearCCI()
+    {
+        rsltCCI.text = NSLocalizedString("MISSING_DATA", comment: "Missing some parameter, can't calculate results")
     }
     
     // Calculate result and show
@@ -88,30 +99,30 @@ class SecondViewController: UIViewController, UITextFieldDelegate
     {
         // DIFERENÇA DE PLAQUETAS ------------------------------------------------------------
         var qtDiferencaPlaquetas:Double = 0
-        if (countElements(txtPlaquetometriaInicial.text) > 0) {
+        if (count(txtPlaquetometriaInicial.text) > 0) {
             
-            if (countElements(txtPlaquetometriaFinal.text) > 0) {
+            if (count(txtPlaquetometriaFinal.text) > 0) {
                 qtDiferencaPlaquetas = Double(txtPlaquetometriaFinal.text.toInt()! - txtPlaquetometriaInicial.text.toInt()!) * 1000
             }
             else {
-                ClearResult()
+                ClearResults()
                 return
             }
         }
         else {
-            ClearResult()
+            ClearResults()
             return
         }
         // -----------------------------------------------------------------------------------
         
         // VOLEMIA ---------------------------------------------------------------------------
         var volemia:Double = 0;
+        var PesoDouble:Double = 0
         if (ctrlTipoPessoa.selectedSegmentIndex != UISegmentedControlNoSegment) {
             
             let volemiaPorKg = [75, 65, 90, 110]
-            var PesoDouble:Double = 0
             
-            if (countElements(txtPeso.text) > 0) {
+            if (count(txtPeso.text) > 0) {
                 
                 PesoDouble = Double(txtPeso.text.toInt()!)
                 if (ctrlUnidadePeso.selectedSegmentIndex != UISegmentedControlNoSegment) {
@@ -125,28 +136,27 @@ class SecondViewController: UIViewController, UITextFieldDelegate
                     
                 }
                 else {
-                    ClearResult()
+                    ClearResults()
                     return
                 }
                 
             }
             else {
-                ClearResult()
+                ClearResults()
                 return
             }
             
             volemia = PesoDouble * Double(volemiaPorKg[ctrlTipoPessoa.selectedSegmentIndex])
         }
         else {
-            ClearResult()
+            ClearResults()
             return
         }
         // -----------------------------------------------------------------------------------
         
         // VOLUME DAS PLAQUETAS --------------------------------------------------------------
-        
         var volume:Double = 0
-        if (countElements(txtVolume.text) > 0) {
+        if (count(txtVolume.text) > 0) {
             if (ctrlTipoBolsa.selectedSegmentIndex != UISegmentedControlNoSegment) {
                 
                 volume = Double(txtVolume.text.toInt()!)
@@ -155,22 +165,51 @@ class SecondViewController: UIViewController, UITextFieldDelegate
                 
             }
             else {
-                ClearResult()
+                ClearResults()
                 return
             }
         }
         else {
-            ClearResult()
+            ClearResults()
             return
         }
         // -----------------------------------------------------------------------------------
         
-        // APLICANDO A FÓRMULA ---------------------------------------------------------------
+        
+        
+        // APLICANDO A FÓRMULA 'RENDIMENTO' --------------------------------------------------
         let rendimento:Double = (Double(qtDiferencaPlaquetas) * volemia * 1000) / volume
         // -----------------------------------------------------------------------------------
         
-        // EXIBINDO --------------------------------------------------------------------------
-        rsltBox.text = NSString(format: "%.0f%%", rendimento * 100)
+        // EXIBINDO 'RENDIMENTO' -------------------------------------------------------------
+        rsltBox.text = String(format: "%.0f%%", rendimento * 100)
+        // -----------------------------------------------------------------------------------
+        
+        
+        
+        // ALTURA ----------------------------------------------------------------------------
+        var altura:Double = 0
+        if (count(txtAltura.text) > 0) {
+            altura = Double(txtAltura.text.toInt()!)
+        }
+        else {
+            ClearCCI()
+            return
+        }
+        // -----------------------------------------------------------------------------------
+        
+        
+        // APLICANDO A FÓRMULA 'CCI' ---------------------------------------------------------
+        let superficie = 0.007184 * pow(altura,0.725) * pow(PesoDouble,0.425)
+        let CCI:Double = (qtDiferencaPlaquetas * superficie) / (volume / 100_000_000_000)
+        // -----------------------------------------------------------------------------------
+        
+        // EXIBINDO 'CCI' --------------------------------------------------------------------
+        var formatter = NSNumberFormatter()
+        formatter.formatterBehavior = .Behavior10_4
+        formatter.numberStyle = .DecimalStyle
+        rsltCCI.text = formatter.stringFromNumber(floor(CCI))! + "/L"
+        //String(format: "%.0f/L", CCI)
         // -----------------------------------------------------------------------------------
     }
     
@@ -190,7 +229,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (countElements(txtPeso.text) > txt_max_length[2]) {
+            if (count(txtPeso.text) > txt_max_length[2]) {
                 let i = advance(txtPeso.text.startIndex, txt_max_length[2])
                 txtPeso.text = txtPeso.text.substringToIndex(i)
             }
@@ -212,7 +251,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (countElements(txtPeso.text) > txt_max_length[2]) {
+            if (count(txtPeso.text) > txt_max_length[2]) {
                 let i = advance(txtPeso.text.startIndex, txt_max_length[2])
                 txtPeso.text = txtPeso.text.substringToIndex(i)
             }
@@ -244,11 +283,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate
     @IBAction func txtVolume_EditingChanged(sender: UITextField)
     {
         CalculateAndShow()
-    }
-    
-    @IBAction func test()
-    {
-        
     }
     // ----------------------------------------------------------------------------------------------------------------------------
 }

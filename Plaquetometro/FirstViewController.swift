@@ -21,7 +21,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var rsltAferese: UITextField!
     
     // Constants
-    var txt_max_length = [2, 2, 3] // Plaquetometria, Rendimento, Peso
+    var txt_max_length = [2, 3, 2] // Plaquetometria, Peso, Rendimento
     
     // viewDidLoad
     override func viewDidLoad()
@@ -38,7 +38,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
         let keyboardDoneButtonView = UIToolbar()
         keyboardDoneButtonView.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Bordered, target: self, action: "doneClicked")
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "doneClicked")
         keyboardDoneButtonView.setItems([doneButton], animated: true)
         
         txtPlaquetometria.inputAccessoryView = keyboardDoneButtonView
@@ -64,14 +64,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate
         let charSet = NSCharacterSet(charactersInString: "0123456789")
         
         // check if all 'new characters' are numbers, return false if some of them aren't
-        for i in 0..<countElements(string) {
+        for i in 0..<count(string) {
             let c:unichar = (string as NSString).characterAtIndex(i)
             if (!charSet.characterIsMember(c)) {
                 return false
             }
         }
         
-        return (countElements(textField.text) + countElements(string) - range.length < txt_max_length[textField.tag] + 1)
+        return (count(textField.text) + count(string) - range.length < txt_max_length[textField.tag] + 1)
     }
     
     // Clear the results fields
@@ -103,7 +103,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
         }
         
         var PlaquetometriaInt = 0
-        if (countElements(txtPlaquetometria.text) > 0) {
+        if (count(txtPlaquetometria.text) > 0) {
             PlaquetometriaInt = txtPlaquetometria.text.toInt()! * 1000
         }
         else {
@@ -121,7 +121,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
             let volemiaPorKg = [75, 65, 90, 110]
             var PesoDouble:Double = 0
             
-            if (countElements(txtPeso.text) > 0) {
+            if (count(txtPeso.text) > 0) {
                 
                 PesoDouble = Double(txtPeso.text.toInt()!)
                 if (ctrlUnidadePeso.selectedSegmentIndex != UISegmentedControlNoSegment) {
@@ -157,7 +157,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
 
         var kStandard:Double
         var kAferese:Double
-        if (countElements(txtRendimento.text) > 0) {
+        if (count(txtRendimento.text) > 0) {
             let rendimento:Double = Double(txtRendimento.text.toInt()!) / 100
             
             kStandard = 1_000_000_000 * rendimento
@@ -181,8 +181,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate
         let sStandard = finalStandard / 55 >= 2 ? "s" : ""
         let sAferese = finalAferese / 200 >= 2 ? "s" : ""
         
-        rsltStandard.text = NSString(format: "%.1f \(unit)\(sStandard) (%.0fml)", finalStandard / 55, finalStandard)
-        rsltAferese.text = NSString(format: "%.1f \(unit)\(sAferese) (%.0fml)", finalAferese / 200, finalAferese)
+        rsltStandard.text = String(format: "%.1f \(unit)\(sStandard) (%.0fml)", finalStandard / 55, finalStandard)
+        rsltAferese.text = String(format: "%.1f \(unit)\(sAferese) (%.0fml)", finalAferese / 200, finalAferese)
         // -----------------------------------------------------------------------------------
     }
     
@@ -209,7 +209,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (countElements(txtPeso.text) > txt_max_length[2]) {
+            if (count(txtPeso.text) > txt_max_length[2]) {
                 let i = advance(txtPeso.text.startIndex, txt_max_length[2])
                 txtPeso.text = txtPeso.text.substringToIndex(i)
             }
@@ -232,7 +232,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
             txt_max_length[2] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if (countElements(txtPeso.text) > txt_max_length[2]) {
+            if (count(txtPeso.text) > txt_max_length[2]) {
                 let i = advance(txtPeso.text.startIndex, txt_max_length[2])
                 txtPeso.text = txtPeso.text.substringToIndex(i)
             }

@@ -41,12 +41,12 @@
 		F29064251A238C530084306B /* PlaquetometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaquetometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F290642A1A238C530084306B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PlaquetometroTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		F290642B1A238C530084306B /* PlaquetometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaquetometroTests.swift; sourceTree = "<group>"; };
-		F29064391A2390390084306B /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F290643A1A2390390084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F290643E1A239F790084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29064401A239F7A0084306B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29064441A23AA470084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F29064461A23AFAE0084306B /* IncrementHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementHelpViewController.swift; sourceTree = "<group>"; };
+		F2C7238C1ACBF79200D5ADDA /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,8 +269,8 @@
 		F29064191A238C530084306B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F29064391A2390390084306B /* pt */,
 				F290643A1A2390390084306B /* en */,
+				F2C7238C1ACBF79200D5ADDA /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
