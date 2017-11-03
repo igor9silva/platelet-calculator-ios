@@ -219,6 +219,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate
 
             // set maxLength for 'g'
             ctrlUnidadePeso.setTitle("g", forSegmentAt: 0)
+
             if (ctrlUnidadePeso.selectedSegmentIndex == 0) {
                 txt_max_length[2] = 4
             }

@@ -199,20 +199,19 @@ class FirstViewController: UIViewController, UITextFieldDelegate
             ctrlUnidadePeso.setTitle("g", forSegmentAt: 0)
 
             if (ctrlUnidadePeso.selectedSegmentIndex == 0) {
-                txt_max_length[2] = 4
+                txt_max_length[1] = 4
             }
 
         } else {
 
             // set maxLength for 'kg'
             ctrlUnidadePeso.setTitle("kg", forSegmentAt: 0)
-            txt_max_length[2] = 3
+            txt_max_length[1] = 3
             
             // If have more then maxLength caracters, delete the extra ones
+            if let txt = txtPeso.text, txt.count > txt_max_length[1] {
 
-            if let txt = txtPeso.text, txt.count > txt_max_length[2] {
-
-                let end = txt.index(txt.startIndex, offsetBy: txt_max_length[2])
+                let end = txt.index(txt.startIndex, offsetBy: txt_max_length[1])
                 txtPeso.text = String(txt[..<end])
             }
         }
@@ -227,18 +226,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate
 
             // set maxLength for 'g'
             if (sender.titleForSegment(at: 0) == "g") {
-                txt_max_length[2] = 4
+                txt_max_length[1] = 4
             }
 
         } else {
 
             // set maxLength for 'kg'
-            txt_max_length[2] = 3
+            txt_max_length[1] = 3
             
             // If have more then maxLength caracters, delete the extra ones
-            if let txt = txtPeso.text, txt.count > txt_max_length[2] {
+            if let txt = txtPeso.text, txt.count > txt_max_length[1] {
 
-                let end = txt.index(txt.startIndex, offsetBy: txt_max_length[2])
+                let end = txt.index(txt.startIndex, offsetBy: txt_max_length[1])
                 txtPeso.text = String(txt[..<end])
             }
         }
