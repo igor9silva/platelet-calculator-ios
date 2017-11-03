@@ -14,7 +14,6 @@
 		F290641B1A238C530084306B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29064191A238C530084306B /* Main.storyboard */; };
 		F290641D1A238C530084306B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F290641C1A238C530084306B /* Images.xcassets */; };
 		F29064201A238C530084306B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F290641E1A238C530084306B /* LaunchScreen.xib */; };
-		F290642C1A238C530084306B /* PlaquetometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290642B1A238C530084306B /* PlaquetometroTests.swift */; };
 		F290643D1A239F790084306B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F290643F1A239F790084306B /* Localizable.strings */; };
 		F29064471A23AFAE0084306B /* IncrementHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29064461A23AFAE0084306B /* IncrementHelpViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,6 @@
 		F290641C1A238C530084306B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F29064251A238C530084306B /* PlaquetometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaquetometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F290642A1A238C530084306B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PlaquetometroTests/Info.plist; sourceTree = SOURCE_ROOT; };
-		F290642B1A238C530084306B /* PlaquetometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaquetometroTests.swift; sourceTree = "<group>"; };
 		F290643A1A2390390084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F290643E1A239F790084306B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29064401A239F7A0084306B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				F29064101A238C530084306B /* Plaquetometro */,
-				F29064281A238C530084306B /* PlaquetometroTests */,
 				F290640F1A238C530084306B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,22 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				F290642A1A238C530084306B /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F29064281A238C530084306B /* PlaquetometroTests */ = {
-			isa = PBXGroup;
-			children = (
-				F290642B1A238C530084306B /* PlaquetometroTests.swift */,
-				F29064291A238C530084306B /* Supporting Files */,
-			);
-			path = PlaquetometroTests;
-			sourceTree = "<group>";
-		};
-		F29064291A238C530084306B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,7 +222,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F290642C1A238C530084306B /* PlaquetometroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SLSV74A325;
 				INFOPLIST_FILE = "$(SRCROOT)/PlaquetometroTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = plaquetometro;
@@ -398,6 +379,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SLSV74A325;
 				INFOPLIST_FILE = "$(SRCROOT)/PlaquetometroTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = plaquetometro;
